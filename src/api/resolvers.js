@@ -126,9 +126,7 @@ module.exports = {
                 name: input.name
             })
             const id = result[0]
-            return await db('brands')
-                .where({ id })
-                .first()
+            return result
         },
 
         async createCategory(_, { input }) {
