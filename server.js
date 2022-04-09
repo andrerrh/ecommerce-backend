@@ -7,7 +7,7 @@ const app = express()
 app.use(cors())
 app.use('/graphql', graphqlHTTP({
     schema,
-    graphiql: false
+    graphiql: true
 }))
 
 app.listen(process.env.PORT || 4000, () => console.log("Running server"))
