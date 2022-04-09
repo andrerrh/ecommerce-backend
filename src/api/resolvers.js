@@ -101,7 +101,7 @@ module.exports = {
         },
 
         async createProduct(_, { input }) {
-            const result = await db('products').insert({
+            return await db('products').insert({
                 name: input.name,
                 price: input.price,
                 positive_rating: input.positive_rating || 0,
@@ -114,11 +114,7 @@ module.exports = {
                 image3: input.image3,
                 image4: input.image4,
                 image5: input.image5
-            })
-            const id = result[0]
-            return await db('products')
-                .where({ id })
-                .first()
+            }).returning('*')
         },
 
         async createBrand(_, { input }) {
@@ -128,28 +124,20 @@ module.exports = {
         },
 
         async createCategory(_, { input }) {
-            const result = await db('categories').insert({
+            return await db('categories').insert({
                 name: input.name
-            })
-            const id = result[0]
-            return await db('categories')
-                .where({ id })
-                .first()
+            }).returning('*')
         },
 
         async updateCart(_, { input }) {
-            const result = await db('cart').insert({
+            return await db('cart').insert({
                 id_user: input.id_user,
                 id_product: input.id_product,
-            })
-            const id = result[0]
-            return await db('cart')
-                .where({ id })
-                .first()
+            }).returning('*')
         },
 
         async updatePurchases(_, { input }) {
-            const result = await db('purchases').insert({
+            return await db('purchases').insert({
                 id_user: input.id_user,
                 id_product: input.id_product,
                 product_name: input.product_name,
@@ -157,11 +145,7 @@ module.exports = {
                 quantity: input.quantity,
                 price_payed: input.price_payed,
                 image: input.image
-            })
-            const id = result[0]
-            return await db('purchases')
-                .where({ id })
-                .first()
+            }).returning('*')
         },
 
         async deleteCart(_, { id }) {
