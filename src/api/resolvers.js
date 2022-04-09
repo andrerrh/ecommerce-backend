@@ -77,13 +77,11 @@ module.exports = {
 
     Mutation: {
         async createUser(_, { input }) {
-            const result = await db('users').insert({
+            return await db('users').insert({
                 name: input.name,
                 email: input.email,
                 password: bcrypt.hashSync(input.password, 10)
             })
-            const id = result[0]
-            return await db('users').where({ id }).first()
         },
 
         async loginUser(_, { input }) {
