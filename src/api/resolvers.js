@@ -205,9 +205,9 @@ module.exports = {
                 return await db('users')
                     .where({ id })
                     .first()
+            } else {
+                return new Error('Erro ao atualizar')
             }
-
-            return "error"
         },
 
         async updateProduct(_, { id, input }) {
