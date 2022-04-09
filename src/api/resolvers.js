@@ -122,11 +122,9 @@ module.exports = {
         },
 
         async createBrand(_, { input }) {
-            const result = await db('brands').insert({
+            return await db('brands').insert({
                 name: input.name
             })
-            console.log(result)
-            return result
         },
 
         async createCategory(_, { input }) {
