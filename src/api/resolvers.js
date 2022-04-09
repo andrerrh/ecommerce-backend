@@ -125,7 +125,7 @@ module.exports = {
             const result = await db('brands').insert({
                 name: input.name
             })
-            const id = result[0]
+            console.log(result)
             return result
         },
 
