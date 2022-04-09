@@ -2,7 +2,7 @@
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 module.exports = {
-  client: 'pg',
+  client: 'postgresql',
   connection: {
     host: 'ec2-3-230-122-20.compute-1.amazonaws.com',
     database: 'd3bn5eri2pjkfq',
