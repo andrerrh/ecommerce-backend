@@ -124,11 +124,9 @@ module.exports = {
         },
 
         async createCategory(_, { input }) {
-            const result = await db('categories').insert({
+            return await db('categories').insert({
                 name: input.name
             }).returning('*')
-            console.log(result)
-            return result
         },
 
         async updateCart(_, { input }) {
