@@ -28,7 +28,7 @@ image5: String
 const typeDefs = `
     type Brands {
         id: Int
-        name: String!
+        name: String
     }
 
     type Cart {
@@ -89,7 +89,7 @@ const typeDefs = `
     }
 
     input BrandsInput {
-        name: String!
+        name: String
     }
 
     input CategoriesInput {
