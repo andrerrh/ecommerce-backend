@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 module.exports = {
     Cart: {
         async product(parent) {
-            console.log(parent)
+            return await parent
             return await db('products')
                 .where({ id: parent.id_product })
                 .first()
