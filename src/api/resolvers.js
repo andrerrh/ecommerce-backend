@@ -114,26 +114,26 @@ module.exports = {
                 image3: input.image3,
                 image4: input.image4,
                 image5: input.image5
-            }).returning('*')
+            })
         },
 
         async createBrand(_, { input }) {
             return await db('brands').insert({
                 name: input.name
-            }).returning('*')
+            })
         },
 
         async createCategory(_, { input }) {
             return await db('categories').insert({
                 name: input.name
-            }).returning('*')
+            })
         },
 
         async updateCart(_, { input }) {
             return await db('cart').insert({
                 id_user: input.id_user,
                 id_product: input.id_product,
-            }).returning('*')
+            })
         },
 
         async updatePurchases(_, { input }) {
@@ -145,7 +145,7 @@ module.exports = {
                 quantity: input.quantity,
                 price_payed: input.price_payed,
                 image: input.image
-            }).returning('*')
+            })
         },
 
         async deleteCart(_, { id }) {
