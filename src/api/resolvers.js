@@ -120,13 +120,15 @@ module.exports = {
         async createBrand(_, { input }) {
             return await db('brands').insert({
                 name: input.name
-            })
+            }).returning('*')
         },
 
         async createCategory(_, { input }) {
-            return await db('categories').insert({
+            const result = await db('categories').insert({
                 name: input.name
             }).returning('*')
+            console.log(result)
+            return result
         },
 
         async updateCart(_, { input }) {
