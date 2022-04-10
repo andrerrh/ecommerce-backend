@@ -144,6 +144,7 @@ module.exports = {
                 purchase_date: input.purchase_date,
                 quantity: input.quantity,
                 price_payed: input.price_payed,
+                product_image: 'image',
                 image: input.image
             })
         },
